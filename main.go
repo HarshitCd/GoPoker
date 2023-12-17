@@ -2,15 +2,20 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
-	"time"
 
 	"github.com/HarshitCd/GoPoker/deck"
+	"github.com/HarshitCd/GoPoker/validate"
 )
 
 func main() {
-	rand.Seed(time.Now().Unix())
-
 	myDeck := deck.New()
-	fmt.Println(myDeck)
+
+	h := myDeck[:2]
+	flop := myDeck[2:7]
+	k := make([]deck.Card, len(h))
+	copy(k, h)
+
+	fmt.Println(h, flop)
+	checkHand := validate.New()
+	checkHand.Validate(h, flop)
 }

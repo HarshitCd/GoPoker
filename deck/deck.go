@@ -46,15 +46,15 @@ func suitToUniCode(s Suit) string {
 }
 
 type Card struct {
-	suit  Suit
-	value int
+	Suit  Suit
+	Value int
 }
 
 func (c Card) String() string {
 
 	var value string
 
-	switch c.value {
+	switch c.Value {
 	case 1:
 		value = "ACE"
 	case 11:
@@ -64,10 +64,10 @@ func (c Card) String() string {
 	case 13:
 		value = "KING"
 	default:
-		value = strconv.Itoa(c.value)
+		value = strconv.Itoa(c.Value)
 	}
 
-	return fmt.Sprintf("%s %s", value, suitToUniCode(c.suit))
+	return fmt.Sprintf("%s %s", value, suitToUniCode(c.Suit))
 }
 
 func NewCard(s Suit, v int) Card {
@@ -77,8 +77,8 @@ func NewCard(s Suit, v int) Card {
 	}
 
 	return Card{
-		suit:  s,
-		value: v,
+		Suit:  s,
+		Value: v,
 	}
 }
 
